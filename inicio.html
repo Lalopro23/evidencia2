@@ -7,54 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="topbar">
+        <div class="topbar-right">
+            <button id="notifBtn" class="icon-btn">🔔</button>
+            <button class="icon-btn">👤</button>
+            <button id="newTaskBtn" class="add-btn">+ Nueva Tarea</button>
+        </div>
+    </header>
+
     <div class="container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <h2>Proyectos</h2>
-            <nav>
-                <button class="active">🏠 Todas las tareas</button>
-                <ul>
-                    <li><span class="dot purple"></span> Humanidades</li>
-                    <li><span class="dot blue"></span> Matemáticas</li>
-                    <li><span class="dot green"></span> Ciencias</li>
-                    <li><span class="dot orange"></span> Programación</li>
-                    <li><span class="dot pink"></span> Personal</li>
-                </ul>
-            </nav>
+            <button class="active">🏠 Todas las tareas</button>
+            <ul>
+                <li><span class="dot purple"></span> Humanidades</li>
+                <li><span class="dot blue"></span> Matemáticas</li>
+                <li><span class="dot green"></span> Ciencias</li>
+                <li><span class="dot orange"></span> Programación</li>
+                <li><span class="dot pink"></span> Personal</li>
+            </ul>
         </aside>
 
-        <!-- Main content -->
         <main class="main">
             <header class="header">
                 <h1>Gestión de Tareas</h1>
                 <p>Organiza tus estudios y proyectos universitarios</p>
             </header>
 
-            <!-- Stats -->
             <section class="stats">
-                <div class="card">
-                    <p>Total de tareas</p>
-                    <h2>6</h2>
-                </div>
-                <div class="card">
-                    <p>En progreso</p>
-                    <h2>2</h2>
-                </div>
-                <div class="card">
-                    <p>Completadas</p>
-                    <h2>0</h2>
-                </div>
-                <div class="card alert">
-                    <p>Vencidas</p>
-                    <h2>6</h2>
-                </div>
+                <div class="card"><p>Total de tareas</p><h2>6</h2></div>
+                <div class="card"><p>En progreso</p><h2>2</h2></div>
+                <div class="card"><p>Completadas</p><h2>0</h2></div>
+                <div class="card alert"><p>Vencidas</p><h2>6</h2></div>
             </section>
 
-            <!-- Task list -->
             <section class="tasks">
                 <div class="task">
                     <input type="checkbox">
-                    <div class="task-info">
+                    <div>
                         <h3>Completar ensayo de Literatura</h3>
                         <p>Escribir el ensayo final sobre "Cien años de soledad"</p>
                         <div class="tags">
@@ -65,10 +55,9 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="task">
                     <input type="checkbox">
-                    <div class="task-info">
+                    <div>
                         <h3>Estudiar para examen de Cálculo</h3>
                         <p>Repasar capítulos 5-8, enfocarse en integrales</p>
                         <div class="tags">
@@ -78,21 +67,88 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="task">
-                    <input type="checkbox">
-                    <div class="task-info">
-                        <h3>Práctica de laboratorio de Química</h3>
-                        <p>Completar el informe del experimento #12</p>
-                        <div class="tags">
-                            <span class="tag green">Ciencias</span>
-                            <span class="tag red">Media</span>
-                            <span class="tag red">6 nov (Vencida)</span>
-                        </div>
-                    </div>
-                </div>
             </section>
         </main>
     </div>
+
+    <!-- MODAL NUEVA TAREA -->
+    <div id="newTaskModal" class="modal">
+        <div class="modal-content">
+            <span id="closeTaskModal" class="close">&times;</span>
+            <h2>Nueva Tarea</h2>
+            <p>Crea una nueva tarea para organizar tus estudios.</p>
+
+            <label>Título*</label>
+            <input type="text" placeholder="Ej: Completar ensayo de Literatura">
+
+            <label>Descripción</label>
+            <textarea placeholder="Añade detalles adicionales sobre la tarea..."></textarea>
+
+            <div class="grid">
+                <div>
+                    <label>Fecha de entrega*</label>
+                    <input type="date" value="2025-11-11">
+                </div>
+                <div>
+                    <label>Prioridad*</label>
+                    <select>
+                        <option>Alta</option>
+                        <option selected>Media</option>
+                        <option>Baja</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <label>Estado*</label>
+                    <select>
+                        <option>Pendiente</option>
+                        <option>En progreso</option>
+                        <option>Completada</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Proyecto</label>
+                    <select>
+                        <option>Sin proyecto</option>
+                        <option>Humanidades</option>
+                        <option>Matemáticas</option>
+                        <option>Ciencias</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>Asignar a colaboradores</label>
+            <input type="text" placeholder="Nombre del colaborador">
+
+            <label>Etiquetas</label>
+            <input type="text" placeholder="Añadir etiqueta">
+
+            <div class="actions">
+                <button id="cancelBtn">Cancelar</button>
+                <button class="primary">Crear tarea</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL DE NOTIFICACIONES -->
+    <div id="notifPanel" class="notif-panel">
+        <div class="notif-header">
+            <h3>🔔 Notificaciones</h3>
+            <span id="closeNotif" class="close">&times;</span>
+        </div>
+        <h4 class="notif-title">⚠️ Tareas vencidas (6)</h4>
+        <div class="notif-list">
+            <div class="notif red">Completar ensayo de Literatura<br><small>Venció el 7/11/2025</small></div>
+            <div class="notif red">Estudiar para examen de Cálculo<br><small>Venció el 5/11/2025</small></div>
+            <div class="notif red">Práctica de laboratorio de Química<br><small>Venció el 6/11/2025</small></div>
+            <div class="notif red">Proyecto grupal de Programación<br><small>Venció el 11/11/2025</small></div>
+            <div class="notif red">Leer artículos de Historia<br><small>Venció el 9/11/2025</small></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
