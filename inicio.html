@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Proyectos</h2>
+            <nav>
+                <button class="active">🏠 Todas las tareas</button>
+                <ul>
+                    <li><span class="dot purple"></span> Humanidades</li>
+                    <li><span class="dot blue"></span> Matemáticas</li>
+                    <li><span class="dot green"></span> Ciencias</li>
+                    <li><span class="dot orange"></span> Programación</li>
+                    <li><span class="dot pink"></span> Personal</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main">
+            <header class="header">
+                <h1>Gestión de Tareas</h1>
+                <p>Organiza tus estudios y proyectos universitarios</p>
+            </header>
+
+            <!-- Stats -->
+            <section class="stats">
+                <div class="card">
+                    <p>Total de tareas</p>
+                    <h2>6</h2>
+                </div>
+                <div class="card">
+                    <p>En progreso</p>
+                    <h2>2</h2>
+                </div>
+                <div class="card">
+                    <p>Completadas</p>
+                    <h2>0</h2>
+                </div>
+                <div class="card alert">
+                    <p>Vencidas</p>
+                    <h2>6</h2>
+                </div>
+            </section>
+
+            <!-- Task list -->
+            <section class="tasks">
+                <div class="task">
+                    <input type="checkbox">
+                    <div class="task-info">
+                        <h3>Completar ensayo de Literatura</h3>
+                        <p>Escribir el ensayo final sobre "Cien años de soledad"</p>
+                        <div class="tags">
+                            <span class="tag purple">Humanidades</span>
+                            <span class="tag red">Alta</span>
+                            <span class="tag blue">En progreso</span>
+                            <span class="tag red">7 nov (Vencida)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox">
+                    <div class="task-info">
+                        <h3>Estudiar para examen de Cálculo</h3>
+                        <p>Repasar capítulos 5-8, enfocarse en integrales</p>
+                        <div class="tags">
+                            <span class="tag blue">Matemáticas</span>
+                            <span class="tag red">Alta</span>
+                            <span class="tag red">5 nov (Vencida)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox">
+                    <div class="task-info">
+                        <h3>Práctica de laboratorio de Química</h3>
+                        <p>Completar el informe del experimento #12</p>
+                        <div class="tags">
+                            <span class="tag green">Ciencias</span>
+                            <span class="tag red">Media</span>
+                            <span class="tag red">6 nov (Vencida)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
